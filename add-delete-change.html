@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title></title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://kit.fontawesome.com/5a44f94317.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div class="container bg-info p-5 m-5">
+      <div class="container bg-warning p-2" id="screen"></div>
+      <input
+        type="text"
+        name=""
+        id="txt"
+        placeholder="Ekleme için değer gir"
+        class="p-1"
+      />
+      <input
+        type="button"
+        value="Push+"
+        onclick="push();"
+        class="btn bg-success"
+      />
+      <input
+        type="button"
+        value="Pop-"
+        class="btn bg-danger"
+        onclick="pop();"
+      />
+      <input
+        type="button"
+        value="Shift-"
+        class="btn bg-danger"
+        onclick="shift();"
+      />
+      <input
+        type="button"
+        value="Unshift+"
+        class="btn bg-success"
+        onclick="unshift();"
+      />
+
+      <input
+        type="button"
+        value="Join"
+        class="btn bg-secondary"
+        onclick="join();"
+      />
+      <input
+        type="button"
+        value="Delete-"
+        class="btn bg-danger"
+        onclick="dlt();"
+      />
+
+      <input
+        type="button"
+        value="Splice"
+        class="btn bg-secondary"
+        onclick="splice();"
+      />
+
+      <input
+        type="button"
+        value="Concat"
+        class="btn bg-secondary"
+        onclick="concat();"
+      />
+
+      <input type="button" value="Slice" class="btn bg-secondary" onclick="slice();" />
+
+
+      <input type="button" value="" class="btn" onclick="" />
+      <input type="button" value="" class="btn" onclick="" />
+      <input type="button" value="" class="btn" onclick="" />
+    </div>
+
+    <script>
+      let country = [
+        "Turkey",
+        "İngiltere",
+        "Fransa",
+        "Almanya",
+        "Hollanda",
+        "İtalya",
+        "İsnpanya",
+        "Portekiz",
+        "Avusturya",
+        "Polonya",
+      ];
+      let country2 = ["Amerika", "Kanada", "Brezilya", "Meksika"];
+
+      let country3 = ["Çin", "Rusya", "Japonya", "Kore", "Hindistan"];
+
+      document.getElementById("screen").innerHTML = country;
+
+      function push() {
+        let text = document.getElementById("txt").value;
+        country.push(text); //sona txt elemanını ekler
+        document.getElementById("screen").innerHTML = country;
+      }
+      function pop() {
+        country.pop(); //sondaki elemanı siler
+        document.getElementById("screen").innerHTML = country;
+      }
+      function shift() {
+        country.shift(); //başdaki elemanı siler
+        document.getElementById("screen").innerHTML = country;
+      }
+      function unshift() {
+        country.unshift("Bulgaristan"); // başa eleman ekler
+        document.getElementById("screen").innerHTML = country;
+      }
+      function join() {
+        document.getElementById("screen").innerHTML = country.join("--"); //dizi elemanlarını bölmesini istediğimiz şekli değiştirmeye yarar
+      }
+      function dlt() {
+        delete country[2]; // 2. indise sahip olan elemanı siler ama 2. indiste delik oluşur
+        document.getElementById("screen").innerHTML = country;
+      }
+      function splice() {
+        country.splice(2, 0, "Yunanistan"); // 2. elemandan sonra 0 eleman silerek "yunanistanı ekle";
+        country.splice(5, 1, "İrlanda"); // 5. elemandan sonra 1 eleman silerek "irlanda" yı ekle
+        country.splice(9, 2); // 9. elemandan sonra 2 eleman sil
+        document.getElementById("screen").innerHTML = country;
+      }
+      function concat() {
+        let world = country.concat(country2,country3);//divleri birleştirmeye yarar
+        document.getElementById("screen").innerHTML = world;
+      }
+      function slice() {
+        // let slice_array = country.slice(3); // 1. kullanım : baştan 3 silme işlemini yaparak yeni div oluşturuyor
+        let slice_array = country.slice(2,7); // 2. kullanım 2(dahil) den başlayıp 7(dahil değil) ye kadar olan elemanları alıp dizi oluşturuyor.
+
+        document.getElementById("screen").innerHTML = slice_array;
+      }
+    </script>
+  </body>
+</html>
