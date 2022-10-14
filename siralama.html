@@ -17,6 +17,8 @@
         <input onclick="oldsort();" type="button" value="yaşları sort ile sırala" class="btn bg-success">
         <input onclick="numbersort();" type="button" value="fonksyon&sort sırala" class="btn bg-white">
         <input onclick="ters();" type="button" value="Ters sırala" class="btn bg-dark text-white">
+        <input onclick="maxold();" type="button" value="max bulma" class="btn bg-secondary text-white">
+        <input onclick="minold();" type="button" value="min bulma" class="btn bg-secondary text-dark">
         
 
 
@@ -27,7 +29,7 @@
       
 
         let name = ["Cemal","Burak","Yağız","Ziya","Cemile","Ayça","Azra","Buse","Meltem","Esra"]
-        let old = [5,25,7,56,29,3,9,66,19,82,76];
+        let old = [5,25,7,56,29,3,9,66,19,82,96];
         // document.getElementById('name').innerHTML=name;
         // document.getElementById('old').innerHTML=old;// bu yazımlar yerine fonksiyon yazmak daha mantıklı
         show('nametxt',name);
@@ -61,6 +63,27 @@
             name.sort();
             name.reverse();
             show('nametxt',name);
+        }
+
+
+        //dizi elemanlarından en büyüğü bularak döndüren fonksiyon
+        function max(arrayname){
+           return Math.max.apply(null,arrayname);
+        }
+
+        // butona tıklayınca show fonksiyonunun içinde max fonksiyonunu çalıştırma
+        function maxold(){
+            show('oldtxt',max(old));
+        }
+        
+
+        // //dizi elemanlarından en küçüğünü bularak döndüren fonksiyon
+        function min(arrayname) {
+          return Math.min.apply(null,arrayname);
+        }
+        // butona tıklayınca show fonksiyonunun içinde min fonksiyonunu çalıştırma
+        function minold(){
+            show('oldtxt',min(old));
         }
 
 
